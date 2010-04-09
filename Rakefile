@@ -6,11 +6,11 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "earnings_estimates"
     gem.summary = %Q{Analyst security earnings estimates analyzer.}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "mattw@decho.com"
+    gem.description = %Q{Retrieves and analyzes earnings estimates for a given security.}
+    gem.email = "mattw922@gmail.com"
     gem.homepage = "http://github.com/whitethunder/earnings_estimates"
     gem.authors = ["Matt White"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+#    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
