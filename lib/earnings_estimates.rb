@@ -3,14 +3,21 @@ require 'open-uri'
 require 'nokogiri'
 
 class EarningsEstimates
-  def initialize
+  def initialize(@ticker)
+    @ticker = ticker
   end
 
-  def fetch_earnings_data(ticker)
-    analysts_covering = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Symbol=#{ticker}")
-    earnings_surprise = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Page=EarningsSurprise&Symbol=#{ticker}")
-    eps_trend = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Page=ConsensusEPSTrend&Symbol=#{ticker}")
+  def fetch_earnings_data
+    threads = []
+    results = {}
+    threads << Thread.new { results[:analysts_covering] = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Symbol=#{@ticker}") }
+    threads << Thread.new { results[:earnings_surprise] = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Page=EarningsSurprise&Symbol=#{@ticker}") }
+    threads << Thread.new { results[:eps_trend} = parse_earnings_table("http://moneycentral.msn.com/investor/invsub/analyst/earnest.asp?Page=ConsensusEPSTrend&Symbol=#{@ticker}") }
+    threads.each { |t| t.join }
+    results
   end
+
+  private
 
   def parse_earnings_table(url)
     page = Nokogiri::HTML(open(url))
