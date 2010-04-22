@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Matt White"]
-  s.date = %q{2010-04-09}
+  s.date = %q{2010-04-22}
   s.description = %q{Retrieves and analyzes earnings estimates for a given security.}
   s.email = %q{mattw922@gmail.com}
   s.extra_rdoc_files = [
@@ -23,7 +23,23 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "doc/classes/Array.html",
+     "doc/classes/Array.src/M000001.html",
+     "doc/classes/Array.src/M000002.html",
+     "doc/classes/EarningsEstimates.html",
+     "doc/classes/EarningsEstimates.src/M000003.html",
+     "doc/classes/EarningsEstimates.src/M000004.html",
+     "doc/classes/EarningsEstimates.src/M000005.html",
+     "doc/created.rid",
+     "doc/files/lib/array_extensions_rb.html",
+     "doc/files/lib/earnings_estimates_rb.html",
+     "doc/fr_class_index.html",
+     "doc/fr_file_index.html",
+     "doc/fr_method_index.html",
+     "doc/index.html",
+     "doc/rdoc-style.css",
      "earnings_estimates.gemspec",
+     "lib/array_extensions.rb",
      "lib/earnings_estimates.rb",
      "test/helper.rb",
      "test/test_earnings_estimates.rb"
