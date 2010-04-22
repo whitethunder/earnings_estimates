@@ -24,16 +24,16 @@ class EarningsEstimates
   end
 
   # Analyzes earnings data and gives the security a score.
+  #Score is based on:
+  # * % of times beating estimates
+  # * % by which estimates were beat
+  # * Bonus for upward revisions:
+  # *  4 points for 7 days
+  # *  3 points for 30 days
+  # *  2 points for 60 days
+  # *  1 point for 90 days
+  # Max score is 40
   def analyze
-    #Score is based on:
-    # % of times beating estimates
-    # % by which estimates were beat
-    # Bonus for upward revisions:
-    #  4 points for 7 days
-    #  3 points for 30 days
-    #  2 points for 60 days
-    #  1 point for 90 days
-    #  Max score is 40
     percentages = percentages_to_f
     @analysis = {
       :average_beating_percentage => average_percent_beating(percentages),
