@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>analyze (EarningsEstimates)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/earnings_estimates.rb, line 27</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">analyze</span>
+    <span class="ruby-comment cmt">#Score is based on:</span>
+    <span class="ruby-comment cmt"># % of times beating estimates</span>
+    <span class="ruby-comment cmt"># % by which estimates were beat</span>
+    <span class="ruby-comment cmt"># Bonus for upward revisions:</span>
+    <span class="ruby-comment cmt">#  4 points for 7 days</span>
+    <span class="ruby-comment cmt">#  3 points for 30 days</span>
+    <span class="ruby-comment cmt">#  2 points for 60 days</span>
+    <span class="ruby-comment cmt">#  1 point for 90 days</span>
+    <span class="ruby-comment cmt">#  Max score is 40</span>
+    <span class="ruby-identifier">percentages</span> = <span class="ruby-identifier">percentages_to_f</span>
+    <span class="ruby-ivar">@analysis</span> = {
+      <span class="ruby-identifier">:average_beating_percentage</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">average_percent_beating</span>(<span class="ruby-identifier">percentages</span>),
+      <span class="ruby-identifier">:beats</span>                      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">times_beating_estimates</span>(<span class="ruby-identifier">percentages</span>),
+      <span class="ruby-identifier">:revision_points</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">revision_score</span>,
+      <span class="ruby-identifier">:recently_revised</span>           =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">nearest_quarters_upward_revised_recently?</span>
+    }
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

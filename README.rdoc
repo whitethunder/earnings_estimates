@@ -1,6 +1,6 @@
 = earnings_estimates
 
-Description goes here.
+The goal of this gem is to retrieve analyst earnings estimates for a given security and perform analysis on them. The theory is that companies that consistently beat earnings estimates and have upward earnings revisions will consistently outperform the market.
 
 == Note on Patches/Pull Requests
  
